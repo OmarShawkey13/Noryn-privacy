@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Official Privacy Policy for Noryn Launcher, an offline-first Android home screen application by Omar Mohamed.">
+  <title>Privacy Policy · Noryn Launcher</title>
+  <style>
+    :root {
+      --bg: #070b18;
+      --bg-elevated: #0e152b;
+      --card-bg: rgba(19, 28, 54, 0.72);
+      --card-border: rgba(130, 170, 255, 0.16);
+      --card-hover: rgba(130, 170, 255, 0.32);
+      --text: #f1f5ff;
+      --text-muted: #9fb0d6;
+      --heading: #ffffff;
+      --accent-cyan: #27e1f6;
+      --accent-blue: #6c80ff;
+      --accent-purple: #cd73ff;
+      --pill-bg: rgba(39, 225, 246, 0.10);
+      --pill-border: rgba(39, 225, 246, 0.28);
+      --pill-text: #8ceeff;
+      --contact-bg: linear-gradient(135deg, rgba(39, 225, 246, 0.09), rgba(108, 128, 255, 0.09));
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      font-synthesis: none;
+      line-height: 1.72;
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f4f7fc;
+        --bg-elevated: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.88);
+        --card-border: rgba(20, 42, 95, 0.10);
+        --card-hover: rgba(39, 95, 203, 0.28);
+        --text: #1b2541;
+        --text-muted: #526282;
+        --heading: #0d1836;
+        --pill-bg: #e6f4f9;
+        --pill-border: #b5e2f2;
+        --pill-text: #0d5975;
+        --contact-bg: linear-gradient(135deg, #eaf8fc, #eef1fd);
+      }
+    }
+
+    html, body, div, header, main, footer, article, section, nav,
+    h1, h2, h3, p, ul, li, a, span, button, svg {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(39, 225, 246, 0.12) 0%, transparent 36%),
+        radial-gradient(circle at 86% 14%, rgba(205, 115, 255, 0.11) 0%, transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(108, 128, 255, 0.06) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-underline-offset: 4px;
+      transition: color 0.18s ease, opacity 0.18s ease;
+    }
+
+    @media (prefers-color-scheme: light) {
+      a { color: #2456c4; }
+    }
+
+    a:hover { opacity: 0.86; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-cyan);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      z-index: 100;
+      padding: 10px 16px;
+      background: var(--bg-elevated);
+      color: var(--text);
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--card-border);
+    }
+
+    .skip-link:focus { left: 16px; }
+
+    .hero {
+      position: relative;
+      color: #f8fbff;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(39, 225, 246, 0.22) 0%, transparent 38%),
+        radial-gradient(circle at 85% 22%, rgba(205, 115, 255, 0.20) 0%, transparent 34%),
+        linear-gradient(135deg, #060b19 0%, #0d1633 55%, #11183b 100%);
+      border-bottom: 1px solid rgba(140, 175, 255, 0.14);
+      overflow: hidden;
+    }
+
+    .hero-inner, main, .footer-inner {
+      width: min(100% - 40px, 940px);
+      margin-inline: auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 26px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: #ffffff;
+      font-size: 1.14rem;
+      font-weight: 750;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: #0f172a;
+      border: 1px solid rgba(130, 175, 255, 0.35);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand-badge {
+      display: inline-block;
+      margin-inline-start: 8px;
+      padding: 2px 9px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #91ecf7;
+      background: rgba(39, 225, 246, 0.14);
+      border: 1px solid rgba(39, 225, 246, 0.35);
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+
+    .languages {
+      display: inline-flex;
+      gap: 6px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+    }
+
+    .lang-btn {
+      padding: 7px 16px;
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      color: #d8e2ff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, #27e1f6, #6c80ff);
+      color: #060b19;
+      box-shadow: 0 4px 14px rgba(39, 225, 246, 0.28);
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      padding-block: 44px 66px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #8ceeff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+    }
+
+    .hero-copy > p:last-child {
+      max-width: 580px;
+      margin: 16px 0 0;
+      color: #cad6f5;
+      font-size: 1.08rem;
+    }
+
+    main {
+      flex: 1;
+      padding-block: 44px 80px;
+    }
+
+    .policy {
+      scroll-margin-top: 28px;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    .policy[hidden] {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.75rem, 3.8vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--heading);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .facts {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .facts li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      color: var(--pill-text);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .facts li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--card-hover);
+    }
+
+    .card-badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(108, 128, 255, 0.14);
+      color: var(--accent-blue);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--heading);
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .card p + p {
+      margin-top: 14px;
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-inline-start: 20px;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .card li + li {
+      margin-top: 8px;
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+    }
+
+    .contact {
+      margin-top: 22px;
+      padding: 24px 28px;
+      border: 1px solid var(--pill-border);
+      border-radius: 22px;
+      background: var(--contact-bg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contact h3 {
+      margin: 0 0 4px;
+      color: var(--heading);
+      font-size: 1.12rem;
+    }
+
+    .contact p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding-block: 26px 40px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    footer p { margin: 0; }
+
+    [lang="ar"] {
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+    }
+
+    [lang="ar"] .section-head h2,
+    [lang="ar"] .card-badge {
+      letter-spacing: 0;
+    }
+
+    .email {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-block: 20px;
+      }
+      .hero-copy { padding-block: 32px 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .card, .contact { padding: 20px; }
+      .section-head { flex-direction: column; gap: 6px; }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --text: #111111;
+        --heading: #000000;
+        --text-muted: #444444;
+        --card-border: #cccccc;
+      }
+      body { background: #ffffff; }
+      .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000; }
+      .hero h1, .brand { color: #000000; }
+      .hero-copy > p:last-child, .eyebrow { color: #333333; }
+      .languages, .skip-link { display: none; }
+      .policy[hidden] { display: block; margin-top: 48px; }
+      .card, .contact { box-shadow: none; break-inside: avoid; background: #ffffff; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to policy content</a>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="Noryn Launcher">
+          <span class="brand-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="11" y="10" width="11" height="44" rx="5.5" fill="#27E1F6"/>
+              <rect x="42" y="10" width="11" height="44" rx="5.5" fill="#CD73FF"/>
+              <rect x="26.5" y="6" width="11" height="52" rx="5.5" transform="rotate(-36 32 32)" fill="#6C80FF"/>
+            </svg>
+          </span>
+        <span>Noryn <span class="brand-badge">Launcher</span></span>
+      </a>
+      <nav class="languages" aria-label="Policy languages">
+        <button type="button" class="lang-btn active" id="btn-en" onclick="switchLang('en')" lang="en">English</button>
+        <button type="button" class="lang-btn" id="btn-ar" onclick="switchLang('ar')" lang="ar">العربية</button>
+        <button type="button" class="lang-btn" id="btn-both" onclick="switchLang('both')">Both · اللغتين</button>
+      </nav>
+    </div>
+
+    <div class="hero-copy" id="top">
+      <p class="eyebrow">Privacy Policy · سياسة الخصوصية</p>
+      <h1 id="hero-title">Privacy, clearly explained.</h1>
+      <p id="hero-subtitle">Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- English Policy -->
+  <article class="policy" id="en" lang="en" aria-labelledby="en-title">
+    <div class="section-head">
+      <h2 id="en-title">Privacy Policy</h2>
+      <p>Effective Date: <time datetime="2026-10-15">October 15, 2026</time> · Developer: <strong>Omar Mohamed</strong></p>
+    </div>
+
+    <ul class="facts" aria-label="Privacy highlights">
+      <li>Zero Internet Permission</li>
+      <li>100% On-Device Processing</li>
+      <li>No Analytics or Tracking SDKs</li>
+      <li>Optional Notification &amp; Lock Controls</li>
+    </ul>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="en-access">
+        <span class="card-badge">Permissions &amp; Access</span>
+        <h3 id="en-access">Information the App Accesses</h3>
+        <p>To function as your Android home screen, Noryn Launcher queries launchable installed applications, their display labels, icons, shortcuts, and available user profiles (such as Personal, Work, or Private Space) so you can browse, search, organize, and launch them.</p>
+        <p>When you customize your home screen, the app reads wallpaper colors or images you explicitly select and hosts Android AppWidgets that you choose to place.</p>
+      </section>
+
+      <section class="card" aria-labelledby="en-notifications">
+        <span class="card-badge">Notification Listener</span>
+        <h3 id="en-notifications">Optional Notifications &amp; Media</h3>
+        <p>If you grant optional <strong>Notification Access</strong>, Noryn reads active notification titles, text, sender avatars, and quick actions solely to display app badges, inline previews, and direct quick-reply controls on your home screen.</p>
+        <p>If you enable media player integration, it reads active media session metadata (track title, artist, album art, and playback controls). Notification and media data remain strictly in volatile memory (RAM) while active and are never written to disk or transmitted anywhere.</p>
+      </section>
+
+      <section class="card wide" aria-labelledby="en-accessibility">
+        <span class="card-badge">Accessibility Service Disclosure</span>
+        <h3 id="en-accessibility">Optional Double-Tap Screen Lock</h3>
+        <p>Noryn Launcher includes an optional Android <strong>AccessibilityService</strong> used exclusively to lock the device screen (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) when you trigger your configured home screen gesture (such as double-tap).</p>
+        <ul>
+          <li>The Accessibility Service <strong>does not</strong> read, inspect, or capture screen content, keystrokes, or window hierarchy.</li>
+          <li>It <strong>does not</strong> collect, store, or share any personal or sensitive user data.</li>
+          <li>You can disable this service at any time from your device's Android Accessibility Settings.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="en-storage">
+        <span class="card-badge">Zero Data Sharing</span>
+        <h3 id="en-storage">Local Storage &amp; Third Parties</h3>
+        <p>Your preferences, favorite apps, folders, hidden apps, custom app names, icon pack overrides, and widget configurations are stored locally on your device.</p>
+        <p>Noryn Launcher <strong>does not request the <code>INTERNET</code> permission</strong>. It cannot transmit data to the developer, advertising networks, or any external servers. When you launch an app, interact with its widget, or send a notification reply, Android routes that action directly to the target app under its own privacy policy.</p>
+      </section>
+
+      <section class="card" aria-labelledby="en-backup">
+        <span class="card-badge">Retention &amp; Control</span>
+        <h3 id="en-backup">Backup &amp; Data Deletion</h3>
+        <p>Android's built-in system backup may back up your non-sensitive launcher preferences according to your device's Google Backup settings (device-specific widget IDs are excluded).</p>
+        <p>You have full control over your data: you can reset individual settings inside Noryn, clear all local storage via Android App Settings, revoke optional permissions at any time, or uninstall the app to permanently remove all stored preferences.</p>
+      </section>
+    </div>
+
+    <section class="contact" aria-labelledby="en-contact">
+      <div>
+        <h3 id="en-contact">Questions or concerns about privacy?</h3>
+        <p>Reach out directly to the developer, Omar Mohamed.</p>
+      </div>
+      <a class="contact-btn email" href="mailto:omar.mohamed.flutter@gmail.com">omar.mohamed.flutter@gmail.com</a>
+    </section>
+  </article>
+
+  <!-- Arabic Policy -->
+  <article class="policy" id="ar" lang="ar" dir="rtl" aria-labelledby="ar-title" hidden>
+    <div class="section-head">
+      <h2 id="ar-title">سياسة الخصوصية</h2>
+      <p>تاريخ السريان: <time datetime="2026-10-15">15 أكتوبر 2026</time> · المطوّر: <strong>Omar Mohamed</strong></p>
+    </div>
+
+    <ul class="facts" aria-label="ملخص الخصوصية">
+      <li>بدون إذن الاتصال بالإنترنت</li>
+      <li>معالجة محلية 100% على جهازك</li>
+      <li>لا توجد أدوات تتبع أو إعلانات</li>
+      <li>أذونات الإشعارات وقفل الشاشة اختيارية</li>
+    </ul>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="ar-access">
+        <span class="card-badge">الأذونات والوصول</span>
+        <h3 id="ar-access">البيانات التي يصل إليها التطبيق</h3>
+        <p>ليعمل Noryn Launcher كشاشة رئيسية لجهازك، يقرأ التطبيق قائمة التطبيقات المثبتة القابلة للتشغيل وأسماءها وأيقوناتها واختصاراتها والملفات الشخصية المتاحة (مثل الملف الشخصي، أو ملف العمل، أو المساحة الخاصة) لتمكينك من عرضها والبحث فيها وتنظيمها وفتحها.</p>
+        <p>عند تخصيص المظهر، يقرأ التطبيق ألوان الخلفية أو الصور التي تختارها بنفسك، ويعرض بيانات الويدجتات (Widgets) التي تضيفها إلى شاشتك الرئيسية.</p>
+      </section>
+
+      <section class="card" aria-labelledby="ar-notifications">
+        <span class="card-badge">خدمة الإشعارات والوسائط</span>
+        <h3 id="ar-notifications">الإشعارات ومشغل الوسائط الاختياري</h3>
+        <p>إذا منحت التطبيق إذن <strong>الوصول إلى الإشعارات</strong> الاختياري، فإنه يقرأ عناوين الإشعارات النشطة ونصوصها وصور المرسلين وأزرار الإجراءات لغرض وحيد هو عرض شارات التنبيه ومعاينات الرسائل والرد السريع المباشر على الشاشة الرئيسية.</p>
+        <p>وعند تفعيل مشغل الوسائط، يقرأ تفاصيل جلسة التشغيل النشطة (اسم المقطع، الفنان، صورة الألبوم، وأزرار التحكم). تبقى جميع بيانات الإشعارات والوسائط في الذاكرة المؤقتة (RAM) فقط أثناء نشاطها، ولا يتم حفظها أبداً في ملفات دائمة أو إرسالها لأي جهة.</p>
+      </section>
+
+      <section class="card wide" aria-labelledby="ar-accessibility">
+        <span class="card-badge">إفصاح خدمة إمكانية الوصول (AccessibilityService)</span>
+        <h3 id="ar-accessibility">قفل الشاشة الاختياري عبر الإيماءات</h3>
+        <p>يتضمن Noryn Launcher خدمة إمكانية وصول اختيارية (<strong>AccessibilityService</strong>) تُستخدم حصرياً لتنفيذ أمر قفل شاشة الجهاز (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) عند استخدام إيماءة الشاشة الرئيسية التي تحددها (مثل النقر المزدوج).</p>
+        <ul>
+          <li><strong>لا تقوم</strong> خدمة إمكانية الوصول بقراءة أو فحص أو التقاط محتوى الشاشة أو النقرات أو النصوص المكتوبة.</li>
+          <li><strong>لا تجمع</strong> الخدمة ولا تخزن ولا تشارك أي بيانات شخصية أو حساسة للمستخدم على الإطلاق.</li>
+          <li>يمكنك إيقاف هذه الخدمة في أي وقت من إعدادات إمكانية الوصول في نظام أندرويد.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="ar-storage">
+        <span class="card-badge">عدم مشاركة البيانات</span>
+        <h3 id="ar-storage">التخزين المحلي والجهات الخارجية</h3>
+        <p>تُحفظ تفضيلاتك وتطبيقاتك المفضلة والمجلدات والتطبيقات المخفية والأسماء والأيقونات المخصصة وتخطيط الويدجتات محلياً على جهازك فقط.</p>
+        <p><strong>لا يطلب Noryn Launcher إذن الاتصال بالإنترنت (<code>INTERNET</code>)</strong>، وبالتالي يستحيل تقنياً أن يرسل بياناتك إلى المطوّر أو أي خوادم خارجية. عند فتح تطبيق آخر أو التفاعل مع ويدجت خاص به أو الرد على إشعاره، يمرر نظام أندرويد هذا الإجراء مباشرة إلى التطبيق المعني وفق سياسة الخصوصية الخاصة به.</p>
+      </section>
+
+      <section class="card" aria-labelledby="ar-backup">
+        <span class="card-badge">التحكم والحذف</span>
+        <h3 id="ar-backup">النسخ الاحتياطي وحذف البيانات</h3>
+        <p>قد يقوم نظام النسخ الاحتياطي في أندرويد بحفظ تفضيلات اللانشر غير الحساسة وفق إعدادات جهازك (مع استثناء معرفات الويدجتات المرتبطة بالجهاز).</p>
+        <p>لديك تحكم كامل في بياناتك: يمكنك استعادة الإعدادات الافتراضية من داخل التطبيق، أو مسح بيانات التخزين المحلي من إعدادات أندرويد، أو إلغاء الأذونات الاختيارية، أو حذف التطبيق لإزالة جميع البيانات المحفوظة نهائياً.</p>
+      </section>
+    </div>
+
+    <section class="contact" aria-labelledby="ar-contact">
+      <div>
+        <h3 id="ar-contact">هل لديك أي استفسار حول الخصوصية؟</h3>
+        <p>تواصل مباشرة مع مطوّر التطبيق Omar Mohamed عبر البريد الإلكتروني.</p>
+      </div>
+      <a class="contact-btn email" href="mailto:omar.mohamed.flutter@gmail.com">omar.mohamed.flutter@gmail.com</a>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Noryn Launcher · Developed by Omar Mohamed</p>
+    <p>Offline-First Android Home Screen · بدون اتصال بالإنترنت</p>
+  </div>
+</footer>
+
+<script>
+  function switchLang(mode) {
+    const enArticle = document.getElementById('en');
+    const arArticle = document.getElementById('ar');
+    const btnEn = document.getElementById('btn-en');
+    const btnAr = document.getElementById('btn-ar');
+    const btnBoth = document.getElementById('btn-both');
+    const heroTitle = document.getElementById('hero-title');
+    const heroSub = document.getElementById('hero-subtitle');
+
+    btnEn.classList.toggle('active', mode === 'en');
+    btnAr.classList.toggle('active', mode === 'ar');
+    btnBoth.classList.toggle('active', mode === 'both');
+
+    if (mode === 'ar') {
+      enArticle.hidden = true;
+      arArticle.hidden = false;
+      arArticle.style.marginTop = '0';
+      heroTitle.textContent = 'الخصوصية، بوضوح وشفافية.';
+      heroSub.textContent = 'صُمم Noryn Launcher ليعمل بالكامل بدون إنترنت. شاشتك الرئيسية وتطبيقاتك وإشعاراتك تبقى على جهازك فقط.';
+      history.replaceState(null, '', '#ar');
+    } else if (mode === 'both') {
+      enArticle.hidden = false;
+      arArticle.hidden = false;
+      arArticle.style.marginTop = '56px';
+      heroTitle.textContent = 'Privacy, clearly explained.';
+      heroSub.textContent = 'Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.';
+      history.replaceState(null, '', '#both');
+    } else {
+      enArticle.hidden = false;
+      arArticle.hidden = true;
+      heroTitle.textContent = 'Privacy, clearly explained.';
+      heroSub.textContent = 'Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.';
+      history.replaceState(null, '', '#en');
+    }
+  }
+
+  (function initLangFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'ar' || hash === 'both') {
+      switchLang(hash);
+    } else if (navigator.language && navigator.language.toLowerCase().startsWith('ar') && !hash) {
+      switchLang('ar');
+    }
+  })();
+</script>
+</body>
+</html>
