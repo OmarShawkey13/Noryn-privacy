@@ -10,9 +10,9 @@
     :root {
       --bg: #070b18;
       --bg-elevated: #0e152b;
-      --card-bg: rgba(19, 28, 54, 0.72);
+      --card-bg: rgba(19, 28, 54, 0.74);
       --card-border: rgba(130, 170, 255, 0.16);
-      --card-hover: rgba(130, 170, 255, 0.32);
+      --card-hover: rgba(130, 170, 255, 0.34);
       --text: #f1f5ff;
       --text-muted: #9fb0d6;
       --heading: #ffffff;
@@ -22,6 +22,8 @@
       --pill-bg: rgba(39, 225, 246, 0.10);
       --pill-border: rgba(39, 225, 246, 0.28);
       --pill-text: #8ceeff;
+      --code-bg: rgba(108, 128, 255, 0.14);
+      --table-row-alt: rgba(255, 255, 255, 0.025);
       --contact-bg: linear-gradient(135deg, rgba(39, 225, 246, 0.09), rgba(108, 128, 255, 0.09));
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
@@ -35,21 +37,23 @@
       :root {
         --bg: #f4f7fc;
         --bg-elevated: #ffffff;
-        --card-bg: rgba(255, 255, 255, 0.88);
-        --card-border: rgba(20, 42, 95, 0.10);
-        --card-hover: rgba(39, 95, 203, 0.28);
+        --card-bg: rgba(255, 255, 255, 0.92);
+        --card-border: rgba(20, 42, 95, 0.11);
+        --card-hover: rgba(39, 95, 203, 0.30);
         --text: #1b2541;
         --text-muted: #526282;
         --heading: #0d1836;
         --pill-bg: #e6f4f9;
         --pill-border: #b5e2f2;
         --pill-text: #0d5975;
+        --code-bg: rgba(36, 86, 196, 0.10);
+        --table-row-alt: rgba(20, 42, 95, 0.03);
         --contact-bg: linear-gradient(135deg, #eaf8fc, #eef1fd);
       }
     }
 
     html, body, div, header, main, footer, article, section, nav,
-    h1, h2, h3, p, ul, li, a, span, button, svg {
+    h1, h2, h3, p, ul, li, a, span, button, svg, table, thead, tbody, tr, th, td, code {
       box-sizing: border-box;
     }
 
@@ -83,6 +87,17 @@
       border-radius: 8px;
     }
 
+    code {
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--code-bg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+    }
+
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -111,7 +126,7 @@
     }
 
     .hero-inner, main, .footer-inner {
-      width: min(100% - 40px, 940px);
+      width: min(100% - 40px, 980px);
       margin-inline: auto;
     }
 
@@ -196,8 +211,8 @@
     }
 
     .hero-copy {
-      max-width: 700px;
-      padding-block: 44px 66px;
+      max-width: 740px;
+      padding-block: 42px 64px;
     }
 
     .eyebrow {
@@ -218,7 +233,7 @@
     }
 
     .hero-copy > p:last-child {
-      max-width: 580px;
+      max-width: 620px;
       margin: 16px 0 0;
       color: #cad6f5;
       font-size: 1.08rem;
@@ -287,7 +302,7 @@
       background: var(--pill-bg);
       border: 1px solid var(--pill-border);
       color: var(--pill-text);
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
@@ -312,7 +327,7 @@
       border-radius: 22px;
       background: var(--card-bg);
       backdrop-filter: blur(16px);
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: border-color 0.2s ease;
     }
 
     .card:hover {
@@ -324,7 +339,7 @@
       margin-bottom: 10px;
       padding: 3px 10px;
       border-radius: 8px;
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -342,18 +357,18 @@
     .card p {
       margin: 0;
       color: var(--text);
-      font-size: 0.97rem;
+      font-size: 0.96rem;
     }
 
     .card p + p {
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
     .card ul {
       margin: 12px 0 0;
       padding-inline-start: 20px;
       color: var(--text);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
     .card li + li {
@@ -362,6 +377,40 @@
 
     .wide {
       grid-column: 1 / -1;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: start;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--heading);
+      font-weight: 700;
+      background: rgba(108, 128, 255, 0.08);
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--table-row-alt);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
     }
 
     .contact {
@@ -435,7 +484,7 @@
       display: inline-block;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .topbar {
         align-items: flex-start;
         flex-direction: column;
@@ -472,13 +521,13 @@
   <div class="hero-inner">
     <div class="topbar">
       <a class="brand" href="#top" aria-label="Noryn Launcher">
-          <span class="brand-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="11" y="10" width="11" height="44" rx="5.5" fill="#27E1F6"/>
-              <rect x="42" y="10" width="11" height="44" rx="5.5" fill="#CD73FF"/>
-              <rect x="26.5" y="6" width="11" height="52" rx="5.5" transform="rotate(-36 32 32)" fill="#6C80FF"/>
-            </svg>
-          </span>
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="11" y="10" width="11" height="44" rx="5.5" fill="#27E1F6"/>
+            <rect x="42" y="10" width="11" height="44" rx="5.5" fill="#CD73FF"/>
+            <rect x="26.5" y="6" width="11" height="52" rx="5.5" transform="rotate(-36 32 32)" fill="#6C80FF"/>
+          </svg>
+        </span>
         <span>Noryn <span class="brand-badge">Launcher</span></span>
       </a>
       <nav class="languages" aria-label="Policy languages">
@@ -491,128 +540,290 @@
     <div class="hero-copy" id="top">
       <p class="eyebrow">Privacy Policy · سياسة الخصوصية</p>
       <h1 id="hero-title">Privacy, clearly explained.</h1>
-      <p id="hero-subtitle">Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.</p>
+      <p id="hero-subtitle">Noryn Launcher is built 100% offline-first. Your apps, folders, widgets, notifications, and media stay strictly on your device—never on external servers.</p>
     </div>
   </div>
 </header>
 
 <main id="main-content">
-  <!-- English Policy -->
+  <!-- ==================== ENGLISH POLICY ==================== -->
   <article class="policy" id="en" lang="en" aria-labelledby="en-title">
     <div class="section-head">
       <h2 id="en-title">Privacy Policy</h2>
-      <p>Effective Date: <time datetime="2026-10-15">October 15, 2026</time> · Developer: <strong>Omar Mohamed</strong></p>
+      <p>Effective Date: <time datetime="2026-10-16">October 16, 2026</time> · Package: <code>noryn.launcher</code> · Developer: <strong>Omar Mohamed</strong></p>
     </div>
 
     <ul class="facts" aria-label="Privacy highlights">
-      <li>Zero Internet Permission</li>
+      <li>No INTERNET Permission</li>
       <li>100% On-Device Processing</li>
-      <li>No Analytics or Tracking SDKs</li>
-      <li>Optional Notification &amp; Lock Controls</li>
+      <li>Zero Analytics, Ads, or Tracking SDKs</li>
+      <li>Volatile In-Memory Notifications &amp; Media</li>
+      <li>Optional Accessibility Screen Lock</li>
     </ul>
 
     <div class="grid">
-      <section class="card" aria-labelledby="en-access">
-        <span class="card-badge">Permissions &amp; Access</span>
-        <h3 id="en-access">Information the App Accesses</h3>
-        <p>To function as your Android home screen, Noryn Launcher queries launchable installed applications, their display labels, icons, shortcuts, and available user profiles (such as Personal, Work, or Private Space) so you can browse, search, organize, and launch them.</p>
-        <p>When you customize your home screen, the app reads wallpaper colors or images you explicitly select and hosts Android AppWidgets that you choose to place.</p>
-      </section>
-
-      <section class="card" aria-labelledby="en-notifications">
-        <span class="card-badge">Notification Listener</span>
-        <h3 id="en-notifications">Optional Notifications &amp; Media</h3>
-        <p>If you grant optional <strong>Notification Access</strong>, Noryn reads active notification titles, text, sender avatars, and quick actions solely to display app badges, inline previews, and direct quick-reply controls on your home screen.</p>
-        <p>If you enable media player integration, it reads active media session metadata (track title, artist, album art, and playback controls). Notification and media data remain strictly in volatile memory (RAM) while active and are never written to disk or transmitted anywhere.</p>
-      </section>
-
-      <section class="card wide" aria-labelledby="en-accessibility">
-        <span class="card-badge">Accessibility Service Disclosure</span>
-        <h3 id="en-accessibility">Optional Double-Tap Screen Lock</h3>
-        <p>Noryn Launcher includes an optional Android <strong>AccessibilityService</strong> used exclusively to lock the device screen (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) when you trigger your configured home screen gesture (such as double-tap).</p>
+      <!-- 1. App Discovery, Search & Customization -->
+      <section class="card" aria-labelledby="en-apps">
+        <span class="card-badge">Apps, Search &amp; Icons</span>
+        <h3 id="en-apps">1. App Discovery, Search &amp; Icon Packs</h3>
+        <p>To operate as your default Android home screen, Noryn Launcher queries launchable installed activities (<code>MAIN</code> / <code>LAUNCHER</code>) and compatible icon pack packages without requesting the broad <code>QUERY_ALL_PACKAGES</code> permission.</p>
         <ul>
-          <li>The Accessibility Service <strong>does not</strong> read, inspect, or capture screen content, keystrokes, or window hierarchy.</li>
-          <li>It <strong>does not</strong> collect, store, or share any personal or sensitive user data.</li>
-          <li>You can disable this service at any time from your device's Android Accessibility Settings.</li>
+          <li><strong>Organization &amp; Suggestions:</strong> Favorites, favorite folders, hidden apps, custom app labels, per-app icon overrides, and recent app launch history (used for optional local suggestions) are processed and stored strictly on your device.</li>
+          <li><strong>App Shortcuts &amp; Search:</strong> The app reads Android app shortcuts (dynamic, manifest, and pinned shortcuts) and performs instant on-device search—including Arabic character normalization—locally in memory.</li>
         </ul>
       </section>
 
-      <section class="card" aria-labelledby="en-storage">
-        <span class="card-badge">Zero Data Sharing</span>
-        <h3 id="en-storage">Local Storage &amp; Third Parties</h3>
-        <p>Your preferences, favorite apps, folders, hidden apps, custom app names, icon pack overrides, and widget configurations are stored locally on your device.</p>
-        <p>Noryn Launcher <strong>does not request the <code>INTERNET</code> permission</strong>. It cannot transmit data to the developer, advertising networks, or any external servers. When you launch an app, interact with its widget, or send a notification reply, Android routes that action directly to the target app under its own privacy policy.</p>
+      <!-- 2. User Profiles & Private Space -->
+      <section class="card" aria-labelledby="en-profiles">
+        <span class="card-badge">Multi-Profile Support</span>
+        <h3 id="en-profiles">2. User Profiles &amp; Private Space</h3>
+        <p>Noryn Launcher supports Android multi-user profiles, including Personal, Work (Managed Profile), Clone, and Android 15+ Private Space (via <code>ACCESS_HIDDEN_PROFILES</code> when supported by your device).</p>
+        <ul>
+          <li>The launcher reads profile availability, lock/quiet mode status, and profile badges solely to group or mix apps according to your layout preference and to let you resume a paused Work profile.</li>
+          <li>Apps and notifications belonging to locked or hidden profiles are automatically filtered out when unavailable.</li>
+        </ul>
       </section>
 
-      <section class="card" aria-labelledby="en-backup">
-        <span class="card-badge">Retention &amp; Control</span>
-        <h3 id="en-backup">Backup &amp; Data Deletion</h3>
-        <p>Android's built-in system backup may back up your non-sensitive launcher preferences according to your device's Google Backup settings (device-specific widget IDs are excluded).</p>
-        <p>You have full control over your data: you can reset individual settings inside Noryn, clear all local storage via Android App Settings, revoke optional permissions at any time, or uninstall the app to permanently remove all stored preferences.</p>
+      <!-- 3. Notifications & Quick Reply -->
+      <section class="card" aria-labelledby="en-notifications">
+        <span class="card-badge">Notification Listener Service</span>
+        <h3 id="en-notifications">3. Optional Notifications &amp; Inline Replies</h3>
+        <p>If you set Noryn as your default launcher and grant optional <strong>Notification Access</strong> (<code>BIND_NOTIFICATION_LISTENER_SERVICE</code>), the app reads active notifications to provide:</p>
+        <ul>
+          <li>App icon badges (Dot or Count) and inline notification summaries.</li>
+          <li>Expandable conversation cards displaying message text, sender avatars (<code>Person</code> / <code>LargeIcon</code>), action buttons, system smart-reply suggestions, and direct inline text replies.</li>
+        </ul>
+        <p><strong>Volatile Memory Only:</strong> Notification titles, message bodies, smart replies, and sender avatars are held strictly in volatile memory (RAM) while active. They are <strong>never</strong> written to disk, logged, or shared, and are immediately cleared when dismissed, when the app process stops, or when permission is revoked.</p>
+      </section>
+
+      <!-- 4. Media Player Card & Artwork -->
+      <section class="card" aria-labelledby="en-media">
+        <span class="card-badge">Media Session Integration</span>
+        <h3 id="en-media">4. Media Player Card &amp; Album Artwork</h3>
+        <p>When media integration is enabled alongside Notification Access, Noryn reads active Android <code>MediaSession</code> controllers to display the current track title, artist, source player name, and playback controls (Play/Pause, Next, Previous).</p>
+        <p>To render the album cover and dynamically tint the media card, Noryn reads artwork bitmaps from the active media session, local content URIs (<code>content://</code>), or the active media notification's large icon in RAM. No media history or audio data is ever recorded or stored on disk.</p>
+      </section>
+
+      <!-- 5. Prominent Disclosure: Accessibility Service -->
+      <section class="card wide" aria-labelledby="en-accessibility">
+        <span class="card-badge">Accessibility Service Disclosure</span>
+        <h3 id="en-accessibility">5. Optional Double-Tap Screen Lock (AccessibilityService API)</h3>
+        <p>On Android 9 (API 28) and newer, Noryn Launcher offers an optional gesture to lock your screen by double-tapping the home screen. Before redirecting you to Android Settings, the app displays an in-app prominent disclosure dialog explaining this feature.</p>
+        <ul>
+          <li><strong>Exclusive Purpose:</strong> When enabled by you, Noryn's <code>AccessibilityService</code> is used <strong>exclusively</strong> to invoke the system screen-lock action (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) upon your gesture.</li>
+          <li><strong>Zero Content Inspection:</strong> The service is configured with <code>canRetrieveWindowContent="false"</code> and processes no accessibility events. It <strong>does not</strong> read screen content, capture keystrokes, monitor other apps, or observe user interactions.</li>
+          <li><strong>Zero Data Collection:</strong> No personal or sensitive data is accessed, collected, stored, or transmitted. You can revoke this service at any time in Android Accessibility Settings, and the rest of the launcher works normally without it.</li>
+        </ul>
+      </section>
+
+      <!-- 6. Wallpapers, Clock Studio & Widgets -->
+      <section class="card" aria-labelledby="en-widgets">
+        <span class="card-badge">Wallpapers &amp; AppWidgets</span>
+        <h3 id="en-widgets">6. Wallpapers, Themes &amp; Widgets</h3>
+        <p><strong>Wallpapers &amp; Accent Colors:</strong> When you pick an image to set as your system wallpaper (<code>SET_WALLPAPER</code>), Noryn applies it to your device and extracts dominant accent colors on-device to theme the interface and ensure readable text contrast.</p>
+        <p><strong>Hosted AppWidgets:</strong> When you add third-party Android widgets to your home screen, Noryn hosts them via the official <code>AppWidgetHost</code> API and stores widget IDs, order, and size presets (Compact, Standard, Tall) in a local SQLite database.</p>
+      </section>
+
+      <!-- 7. Storage, Backup & Deletion -->
+      <section class="card" aria-labelledby="en-storage">
+        <span class="card-badge">Storage, Backup &amp; Deletion</span>
+        <h3 id="en-storage">7. Local Storage, Backup &amp; Your Controls</h3>
+        <p>All launcher settings—including Clock Studio designs, header layout, alphabet rail customization, gestures, favorites, folders, and custom labels—are stored locally in Android <strong>Preferences DataStore</strong>.</p>
+        <p><strong>Zero Network Transmission:</strong> Because Noryn Launcher does not declare the <code>INTERNET</code> permission, it cannot connect to any server. Android system backup may back up your DataStore preferences according to your device settings (device-specific SQLite widget IDs are excluded). You can clear all data at any time via Android Settings or by uninstalling the app.</p>
+      </section>
+
+      <!-- 8. Permissions Summary Table -->
+      <section class="card wide" aria-labelledby="en-permissions-table">
+        <span class="card-badge">System Transparency</span>
+        <h3 id="en-permissions-table">Summary of Permissions &amp; System Roles</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+            <tr>
+              <th>Permission / Role</th>
+              <th>Status</th>
+              <th>Purpose in Noryn Launcher</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><code>HOME</code> / Default Launcher Role</td>
+              <td>Core</td>
+              <td>Displays your home screen, app list, folders, search, and hosted widgets.</td>
+            </tr>
+            <tr>
+              <td><code>SET_WALLPAPER</code></td>
+              <td>Optional</td>
+              <td>Applies a user-selected image as the system wallpaper and extracts local accent colors.</td>
+            </tr>
+            <tr>
+              <td><code>ACCESS_HIDDEN_PROFILES</code></td>
+              <td>System</td>
+              <td>Displays Private Space / work profiles when unlocked and enabled in launcher settings.</td>
+            </tr>
+            <tr>
+              <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+              <td>Optional (User-Granted)</td>
+              <td>Shows notification badges, inline conversation previews, quick replies, and active media sessions in RAM.</td>
+            </tr>
+            <tr>
+              <td><code>BIND_ACCESSIBILITY_SERVICE</code></td>
+              <td>Optional (User-Granted)</td>
+              <td>Performs <code>GLOBAL_ACTION_LOCK_SCREEN</code> on double-tap. Does not read screen content or events.</td>
+            </tr>
+            <tr>
+              <td><code>INTERNET</code></td>
+              <td><strong>Not Requested</strong></td>
+              <td>Noryn has no network access; all data remains 100% offline on your device.</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
 
     <section class="contact" aria-labelledby="en-contact">
       <div>
         <h3 id="en-contact">Questions or concerns about privacy?</h3>
-        <p>Reach out directly to the developer, Omar Mohamed.</p>
+        <p>Contact the developer, Omar Mohamed, directly via email.</p>
       </div>
       <a class="contact-btn email" href="mailto:omar.mohamed.flutter@gmail.com">omar.mohamed.flutter@gmail.com</a>
     </section>
   </article>
 
-  <!-- Arabic Policy -->
+  <!-- ==================== ARABIC POLICY ==================== -->
   <article class="policy" id="ar" lang="ar" dir="rtl" aria-labelledby="ar-title" hidden>
     <div class="section-head">
       <h2 id="ar-title">سياسة الخصوصية</h2>
-      <p>تاريخ السريان: <time datetime="2026-10-15">15 أكتوبر 2026</time> · المطوّر: <strong>Omar Mohamed</strong></p>
+      <p>تاريخ السريان: <time datetime="2026-10-16">16 أكتوبر 2026</time> · الحزمة: <code>noryn.launcher</code> · المطوّر: <strong>Omar Mohamed</strong></p>
     </div>
 
     <ul class="facts" aria-label="ملخص الخصوصية">
-      <li>بدون إذن الاتصال بالإنترنت</li>
-      <li>معالجة محلية 100% على جهازك</li>
-      <li>لا توجد أدوات تتبع أو إعلانات</li>
-      <li>أذونات الإشعارات وقفل الشاشة اختيارية</li>
+      <li>بدون إذن الاتصال بالإنترنت نهائياً</li>
+      <li>معالجة وتخزين محلي 100% على الهاتف</li>
+      <li>خالي من الإعلانات أو أدوات التتبع والتحليل</li>
+      <li>معالجة الإشعارات والوسائط في الذاكرة المؤقتة فقط</li>
+      <li>قفل الشاشة الاختياري عبر إمكانية الوصول</li>
     </ul>
 
     <div class="grid">
-      <section class="card" aria-labelledby="ar-access">
-        <span class="card-badge">الأذونات والوصول</span>
-        <h3 id="ar-access">البيانات التي يصل إليها التطبيق</h3>
-        <p>ليعمل Noryn Launcher كشاشة رئيسية لجهازك، يقرأ التطبيق قائمة التطبيقات المثبتة القابلة للتشغيل وأسماءها وأيقوناتها واختصاراتها والملفات الشخصية المتاحة (مثل الملف الشخصي، أو ملف العمل، أو المساحة الخاصة) لتمكينك من عرضها والبحث فيها وتنظيمها وفتحها.</p>
-        <p>عند تخصيص المظهر، يقرأ التطبيق ألوان الخلفية أو الصور التي تختارها بنفسك، ويعرض بيانات الويدجتات (Widgets) التي تضيفها إلى شاشتك الرئيسية.</p>
-      </section>
-
-      <section class="card" aria-labelledby="ar-notifications">
-        <span class="card-badge">خدمة الإشعارات والوسائط</span>
-        <h3 id="ar-notifications">الإشعارات ومشغل الوسائط الاختياري</h3>
-        <p>إذا منحت التطبيق إذن <strong>الوصول إلى الإشعارات</strong> الاختياري، فإنه يقرأ عناوين الإشعارات النشطة ونصوصها وصور المرسلين وأزرار الإجراءات لغرض وحيد هو عرض شارات التنبيه ومعاينات الرسائل والرد السريع المباشر على الشاشة الرئيسية.</p>
-        <p>وعند تفعيل مشغل الوسائط، يقرأ تفاصيل جلسة التشغيل النشطة (اسم المقطع، الفنان، صورة الألبوم، وأزرار التحكم). تبقى جميع بيانات الإشعارات والوسائط في الذاكرة المؤقتة (RAM) فقط أثناء نشاطها، ولا يتم حفظها أبداً في ملفات دائمة أو إرسالها لأي جهة.</p>
-      </section>
-
-      <section class="card wide" aria-labelledby="ar-accessibility">
-        <span class="card-badge">إفصاح خدمة إمكانية الوصول (AccessibilityService)</span>
-        <h3 id="ar-accessibility">قفل الشاشة الاختياري عبر الإيماءات</h3>
-        <p>يتضمن Noryn Launcher خدمة إمكانية وصول اختيارية (<strong>AccessibilityService</strong>) تُستخدم حصرياً لتنفيذ أمر قفل شاشة الجهاز (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) عند استخدام إيماءة الشاشة الرئيسية التي تحددها (مثل النقر المزدوج).</p>
+      <!-- 1. التطبيقات والبحث وحزم الأيقونات -->
+      <section class="card" aria-labelledby="ar-apps">
+        <span class="card-badge">التطبيقات والبحث والأيقونات</span>
+        <h3 id="ar-apps">1. اكتشاف التطبيقات، البحث، وحزم الأيقونات</h3>
+        <p>ليعمل Noryn Launcher كشاشة رئيسية بديلة لنظام أندرويد، يستعلم التطبيق عن الأنشطة القابلة للتشغيل (<code>MAIN</code> / <code>LAUNCHER</code>) وحزم الأيقونات المتوافقة المثبتة على جهازك، دون طلب الإذن الشامل <code>QUERY_ALL_PACKAGES</code>.</p>
         <ul>
-          <li><strong>لا تقوم</strong> خدمة إمكانية الوصول بقراءة أو فحص أو التقاط محتوى الشاشة أو النقرات أو النصوص المكتوبة.</li>
-          <li><strong>لا تجمع</strong> الخدمة ولا تخزن ولا تشارك أي بيانات شخصية أو حساسة للمستخدم على الإطلاق.</li>
-          <li>يمكنك إيقاف هذه الخدمة في أي وقت من إعدادات إمكانية الوصول في نظام أندرويد.</li>
+          <li><strong>التنظيم والاقتراحات المحلية:</strong> تُحفظ قائمة المفضلة، مجلدات المفضلة، التطبيقات المخفية، الأسماء والأيقونات المخصصة لكل تطبيق، وسجل فتح التطبيقات (المستخدم لعرض الاقتراحات المحلية الاختيارية) داخل جهازك فقط.</li>
+          <li><strong>اختصارات التطبيقات والبحث:</strong> يقرأ اللانشر اختصارات التطبيقات التي يوفرها النظام (<code>App Shortcuts</code>)، وينفّذ البحث الفوري وتطبيع الحروف العربية محلياً في الذاكرة.</li>
         </ul>
       </section>
 
-      <section class="card" aria-labelledby="ar-storage">
-        <span class="card-badge">عدم مشاركة البيانات</span>
-        <h3 id="ar-storage">التخزين المحلي والجهات الخارجية</h3>
-        <p>تُحفظ تفضيلاتك وتطبيقاتك المفضلة والمجلدات والتطبيقات المخفية والأسماء والأيقونات المخصصة وتخطيط الويدجتات محلياً على جهازك فقط.</p>
-        <p><strong>لا يطلب Noryn Launcher إذن الاتصال بالإنترنت (<code>INTERNET</code>)</strong>، وبالتالي يستحيل تقنياً أن يرسل بياناتك إلى المطوّر أو أي خوادم خارجية. عند فتح تطبيق آخر أو التفاعل مع ويدجت خاص به أو الرد على إشعاره، يمرر نظام أندرويد هذا الإجراء مباشرة إلى التطبيق المعني وفق سياسة الخصوصية الخاصة به.</p>
+      <!-- 2. الملفات الشخصية والمساحة الخاصة -->
+      <section class="card" aria-labelledby="ar-profiles">
+        <span class="card-badge">تعدد الملفات الشخصية</span>
+        <h3 id="ar-profiles">2. الملفات الشخصية والمساحة الخاصة</h3>
+        <p>يدعم Noryn Launcher عرض التطبيقات حسب الملف الشخصي في أندرويد: الملف الشخصي، ملف العمل (<code>Work Profile</code>)، التطبيقات المستنسخة (<code>Clone</code>)، والمساحة الخاصة (<code>Private Space</code> عبر إذن <code>ACCESS_HIDDEN_PROFILES</code> على الأجهزة المدعومة).</p>
+        <ul>
+          <li>يقرأ اللانشر حالة توفر أو قفل الملف الشخصي لعرض التطبيقات منفصلة أو مدمجة حسب اختيارك، ولإتاحة زر استئناف ملف العمل عند إيقافه مؤقتاً.</li>
+          <li>يتم إخفاء تطبيقات وإشعارات المساحة الخاصة أو ملف العمل تلقائياً عند قفلها.</li>
+        </ul>
       </section>
 
-      <section class="card" aria-labelledby="ar-backup">
-        <span class="card-badge">التحكم والحذف</span>
-        <h3 id="ar-backup">النسخ الاحتياطي وحذف البيانات</h3>
-        <p>قد يقوم نظام النسخ الاحتياطي في أندرويد بحفظ تفضيلات اللانشر غير الحساسة وفق إعدادات جهازك (مع استثناء معرفات الويدجتات المرتبطة بالجهاز).</p>
-        <p>لديك تحكم كامل في بياناتك: يمكنك استعادة الإعدادات الافتراضية من داخل التطبيق، أو مسح بيانات التخزين المحلي من إعدادات أندرويد، أو إلغاء الأذونات الاختيارية، أو حذف التطبيق لإزالة جميع البيانات المحفوظة نهائياً.</p>
+      <!-- 3. الإشعارات والرد السريع -->
+      <section class="card" aria-labelledby="ar-notifications">
+        <span class="card-badge">خدمة الوصول إلى الإشعارات</span>
+        <h3 id="ar-notifications">3. الإشعارات الاختيارية والرد السريع المدمج</h3>
+        <p>عند تعيين Noryn كمشغّل افتراضي ومنحه صلاحية <strong>الوصول إلى الإشعارات</strong> الاختيارية (<code>BIND_NOTIFICATION_LISTENER_SERVICE</code>)، يقرأ التطبيق الإشعارات النشطة لتقديم الميزات التالية:</p>
+        <ul>
+          <li>عرض مؤشرات التنبيه (نقطة أو عدّاد رقمي) فوق أيقونة التطبيق وملخص الإشعار ووقته في صف التطبيق.</li>
+          <li>بطاقة المحادثات الموسّعة التي تعرض نصوص الرسائل، صورة المرسل (<code>Avatar</code>)، أزرار إجراءات الإشعار، الردود الذكية المقترحة، وإمكانية إرسال رد نصي مباشر أو حذف الإشعار.</li>
+        </ul>
+        <p><strong>في الذاكرة المؤقتة فقط (RAM):</strong> تبقى كافة عناوين ونصوص الإشعارات وصور المرسلين في الذاكرة المؤقتة فقط أثناء نشاطها؛ <strong>ولا يتم كتابتها أو حفظها أبداً في قاعدة بيانات أو ملفات دائمة</strong>، وتُمسح فوراً عند إزالة الإشعار أو إغلاق التطبيق أو إلغاء الصلاحية.</p>
+      </section>
+
+      <!-- 4. بطاقة الوسائط وغلاف الألبوم -->
+      <section class="card" aria-labelledby="ar-media">
+        <span class="card-badge">جلسات تشغيل الوسائط</span>
+        <h3 id="ar-media">4. بطاقة مشغل الوسائط وغلاف المقطع</h3>
+        <p>عند تفعيل بطاقة الوسائط مع صلاحية الإشعارات، يقرأ اللانشر جلسات التشغيل النشطة (<code>MediaSession</code>) لعرض اسم المقطع الحالي، اسم الفنان أو التطبيق المشغّل، وأزرار التحكم (تشغيل/إيقاف، التالي، السابق).</p>
+        <p>لعرض غلاف المقطع وتلوين خلفية البطاقة تلقائياً، يقرأ التطبيق صورة الغلاف في الذاكرة المؤقتة (RAM) من جلسة الوسائط أو الرابط المحلي (<code>content://</code>) أو أيقونة إشعار الميديا النشط، دون تسجيل أو تخزين أي سجل استماع.</p>
+      </section>
+
+      <!-- 5. إفصاح خدمة إمكانية الوصول -->
+      <section class="card wide" aria-labelledby="ar-accessibility">
+        <span class="card-badge">إفصاح خدمة إمكانية الوصول (AccessibilityService API)</span>
+        <h3 id="ar-accessibility">5. قفل الشاشة الاختياري بالنقر المزدوج (AccessibilityService)</h3>
+        <p>على نظام Android 9 فأحدث، يوفّر Noryn Launcher خياراً لقفل الشاشة عند النقر المزدوج على الشاشة الرئيسية. قبل الانتقال لإعدادات النظام، يعرض التطبيق نافذة إفصاح بارزة وواضحة للمستخدم.</p>
+        <ul>
+          <li><strong>الغرض الحصري:</strong> عند تفعيل الخدمة باختيارك، تُستخدم خدمة <code>AccessibilityService</code> <strong>حصرياً</strong> لتنفيذ أمر النظام لقفل الشاشة (<code>GLOBAL_ACTION_LOCK_SCREEN</code>) عند تنفيذ الإيماءة.</li>
+          <li><strong>عدم قراءة محتوى الشاشة:</strong> الخدمة مضبوطة بـ <code>canRetrieveWindowContent="false"</code> ولا تستقبل أو تعالج أحداث إمكانية الوصول؛ فهي <strong>لا تقرأ</strong> محتوى الشاشة، ولا تلتقط النقرات أو النصوص المكتوبة، ولا تراقب التطبيقات الأخرى.</li>
+          <li><strong>عدم جمع أو مشاركة البيانات:</strong> لا تجمع الخدمة ولا تخزن ولا تشارك أي بيانات شخصية أو حساسة. هذه الميزة اختيارية تماماً ويعمل اللانشر بكامل وظائفه بدونها، ويمكنك تعطيلها في أي وقت من إعدادات أندرويد.</li>
+        </ul>
+      </section>
+
+      <!-- 6. الخلفيات والساعة والويدجتات -->
+      <section class="card" aria-labelledby="ar-widgets">
+        <span class="card-badge">الخلفيات والويدجتات</span>
+        <h3 id="ar-widgets">6. الخلفية، الألوان، واستضافة الويدجتات</h3>
+        <p><strong>الخلفية واستخراج الألوان:</strong> عند اختيار صورة من جهازك لتعيينها كخلفية للنظام (<code>SET_WALLPAPER</code>)، يطبقها اللانشر ويستخرج ألوانها محلياً لتلوين الواجهة وضبط تباين النصوص.</p>
+        <p><strong>استضافة الويدجتات (AppWidgets):</strong> يستضيف التطبيق ويدجتات أندرويد التي تضيفها للشاشة الرئيسية عبر واجهة <code>AppWidgetHost</code> الرسمية، ويحفظ معرفاتها وترتيبها وأحجامها (<code>Compact</code>، <code>Standard</code>، <code>Tall</code>) محلياً في قاعدة بيانات <code>SQLite</code>.</p>
+      </section>
+
+      <!-- 7. التخزين والنسخ الاحتياطي والحذف -->
+      <section class="card" aria-labelledby="ar-storage">
+        <span class="card-badge">التخزين والتحكم بالبيانات</span>
+        <h3 id="ar-storage">7. التخزين المحلي، النسخ الاحتياطي، والحذف</h3>
+        <p>تُحفظ جميع إعدادات التخصيص — بما فيها تصاميم استوديو الساعة العشرة، تخطيط الرأس، الفهرس الأبجدي، ضبابية كبسولة البحث، الإيماءات، والمفضلة — محلياً على جهازك باستخدام <strong>Preferences DataStore</strong>.</p>
+        <p><strong>انعدام الاتصال الشبكي:</strong> لا يطلب التطبيق إذن <code>INTERNET</code> في ملف الـ Manifest، مما يجعل إرسال أي بيانات لخوادم خارجية أمراً مستحيلاً تقنياً. قد ينسخ نظام أندرويد إعدادات التفضيلات غير الحساسة احتياطياً وفق إعدادات جهازك (مع استثناء قاعدة بيانات الويدجتات المرتبطة بالجهاز). يمكنك مسح جميع البيانات في أي وقت من إعدادات أندرويد أو بإلغاء تثبيت التطبيق.</p>
+      </section>
+
+      <!-- 8. جدول ملخص الأذونات -->
+      <section class="card wide" aria-labelledby="ar-permissions-table">
+        <span class="card-badge">شفافية الأذونات</span>
+        <h3 id="ar-permissions-table">ملخص أذونات وأدوار النظام في التطبيق</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+            <tr>
+              <th>الإذن / دور النظام</th>
+              <th>الحالة</th>
+              <th>الغرض منه داخل Noryn Launcher</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><code>HOME</code> / المشغّل الافتراضي</td>
+              <td>أساسي</td>
+              <td>عرض الشاشة الرئيسية، قائمة التطبيقات، المجلدات، البحث، والويدجتات.</td>
+            </tr>
+            <tr>
+              <td><code>SET_WALLPAPER</code></td>
+              <td>اختياري</td>
+              <td>تعيين الصورة التي يختارها المستخدم كخلفية للنظام واستخراج ألوان السمة منها محلياً.</td>
+            </tr>
+            <tr>
+              <td><code>ACCESS_HIDDEN_PROFILES</code></td>
+              <td>نظام</td>
+              <td>إظهار تطبيقات المساحة الخاصة وملف العمل عند فتح قفلها وتفعيلها من الإعدادات.</td>
+            </tr>
+            <tr>
+              <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+              <td>اختياري (بموافقة المستخدم)</td>
+              <td>عرض شارات الإشعارات، معاينة المحادثات والرد السريع، وبطاقة الوسائط في الذاكرة المؤقتة (RAM).</td>
+            </tr>
+            <tr>
+              <td><code>BIND_ACCESSIBILITY_SERVICE</code></td>
+              <td>اختياري (بموافقة المستخدم)</td>
+              <td>تنفيذ أمر قفل الشاشة <code>GLOBAL_ACTION_LOCK_SCREEN</code> عند النقر المزدوج دون قراءة محتوى الشاشة.</td>
+            </tr>
+            <tr>
+              <td><code>INTERNET</code></td>
+              <td><strong>غير مطلوب نهائياً</strong></td>
+              <td>لا يملك التطبيق أي صلاحية للاتصال بالإنترنت؛ جميع البيانات تبقى محلياً 100%.</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
 
@@ -629,7 +840,7 @@
 <footer>
   <div class="footer-inner">
     <p>© 2026 Noryn Launcher · Developed by Omar Mohamed</p>
-    <p>Offline-First Android Home Screen · بدون اتصال بالإنترنت</p>
+    <p>100% Offline-First Android Home Screen · يعمل بالكامل بدون إنترنت</p>
   </div>
 </footer>
 
@@ -652,20 +863,20 @@
       arArticle.hidden = false;
       arArticle.style.marginTop = '0';
       heroTitle.textContent = 'الخصوصية، بوضوح وشفافية.';
-      heroSub.textContent = 'صُمم Noryn Launcher ليعمل بالكامل بدون إنترنت. شاشتك الرئيسية وتطبيقاتك وإشعاراتك تبقى على جهازك فقط.';
+      heroSub.textContent = 'صُمم Noryn Launcher ليعمل محلياً بالكامل بدون إنترنت. تطبيقاتك ومجلداتك وإشعاراتك ووسائطك تبقى على جهازك فقط.';
       history.replaceState(null, '', '#ar');
     } else if (mode === 'both') {
       enArticle.hidden = false;
       arArticle.hidden = false;
       arArticle.style.marginTop = '56px';
       heroTitle.textContent = 'Privacy, clearly explained.';
-      heroSub.textContent = 'Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.';
+      heroSub.textContent = 'Noryn Launcher is built 100% offline-first. Your apps, folders, widgets, notifications, and media stay strictly on your device—never on external servers.';
       history.replaceState(null, '', '#both');
     } else {
       enArticle.hidden = false;
       arArticle.hidden = true;
       heroTitle.textContent = 'Privacy, clearly explained.';
-      heroSub.textContent = 'Noryn Launcher is built offline-first. Your home screen, apps, and notifications stay on your device—never on our servers.';
+      heroSub.textContent = 'Noryn Launcher is built 100% offline-first. Your apps, folders, widgets, notifications, and media stay strictly on your device—never on external servers.';
       history.replaceState(null, '', '#en');
     }
   }
